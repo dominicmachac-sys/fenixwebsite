@@ -23,8 +23,8 @@ body{background:var(--dark);color:var(--cream);font-family:'IBM Plex Mono',monos
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35;}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3.5rem;background:rgba(14,8,4,0.96);border-bottom:1px solid var(--border);backdrop-filter:blur(8px);}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.12em;color:var(--orange);text-shadow:0 0 24px rgba(255,88,26,.45);line-height:1;text-decoration:none;display:inline-block;cursor:pointer;}
-.nav-logo small{display:block;font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.45em;color:var(--cream);opacity:.6;margin-top:1px;}
+.nav-logo{display:flex;align-items:center;text-decoration:none;cursor:pointer;line-height:1;flex-shrink:0;}
+.nav-logo img{display:block;height:48px;width:auto;max-width:min(240px,30vw);filter:drop-shadow(0 0 18px rgba(255,88,26,.28));}
 nav ul{list-style:none;display:flex;gap:2.5rem;}
 nav ul a{color:var(--cream);text-decoration:none;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;opacity:.7;transition:all .25s;position:relative;}
 nav ul a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--orange);transition:width .25s;}
@@ -304,6 +304,13 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:2.5rem 
 
   .fg input,.fg select,.fg textarea{font-size:.65rem;padding:.7rem .7rem;}
 }
+
+@media(max-width:900px){
+  .nav-logo img{height:42px;max-width:180px;}
+}
+@media(max-width:640px){
+  .nav-logo img{height:36px;max-width:150px;}
+}
 </style>
 </head>
 <body>
@@ -317,7 +324,9 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:2.5rem 
 </div>
 
 <nav id="mnav">
-  <a href="#hero" class="nav-logo" aria-label="Zpět na úvod">FÉNIX<small>Pub & Music Bar</small></a>
+  <a href="#hero" class="nav-logo" aria-label="Zpět na úvod">
+    <img src="fenixlogo.png" alt="FÉNIX Pub & Music Bar">
+  </a>
   <ul>
     <li><a href="#news">Novinky</a></li>
     <li><a href="#menu">Nápojový lístek</a></li>
