@@ -1,34 +1,40 @@
-function sendRes() {
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value;
-    const partySize = document.getElementById('partySize').value;
-    const occasion = document.getElementById('occasion').value;
-    const notes = document.getElementById('notes').value;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="contact-form">
+        <input type="text" id="fn" name="name" placeholder="Your Name">
+        <input type="email" id="fp" name="email" placeholder="Your Email">
+        <input type="text" id="fd" name="data" placeholder="Data">
+        <input type="text" id="ft" name="type" placeholder="Type">
+        <input type="text" id="fgp" name="group" placeholder="Group">
+        <input type="text" id="fge" name="genre" placeholder="Genre">
+        <input type="text" id="fnt" name="note" placeholder="Note">
+        <button type="submit">Send</button>
+    </form>
 
-    const data = {
-        name,
-        phone,
-        date,
-        time,
-        partySize,
-        occasion,
-        notes
-    };
-
-    fetch('https://formspree.io/f/mlgpllwq', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-}
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('https://formspree.io/f/mlgpllwq', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert('Message sent!');
+                } else {
+                    alert('There was a problem.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
