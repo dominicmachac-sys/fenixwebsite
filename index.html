@@ -31,13 +31,20 @@ nav ul a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1
 nav ul a:hover{opacity:1;color:var(--orange);}
 nav ul a:hover::after{width:100%;}
 
-#hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse 80% 80% at 50% 40%,#3a1004 0%,#160903 50%,#0e0804 100%);overflow:hidden;}
-.vinyl{position:absolute;right:-6%;top:-8%;width:65vmin;height:65vmin;border-radius:50%;background:conic-gradient(from 0deg,#0e0804,#2e0e03,#701e00,#b33508,#ff581a,#b33508,#701e00,#2e0e03,#0e0804,#2e0e03,#701e00,#b33508,#2e0e03,#0e0804);opacity:.4;animation:vspin 28s linear infinite;box-shadow:0 0 100px rgba(255,88,26,.25);}
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse 80% 80% at 50% 40%,#3a1004 0%,#160903 50%,#0e0804 100%);overflow:hidden;isolation:isolate;}
+#hero::before{content:'';position:absolute;inset:-18%;background:radial-gradient(circle at 22% 30%,rgba(255,132,46,.2) 0%,transparent 28%),radial-gradient(circle at 76% 25%,rgba(255,88,26,.26) 0%,transparent 30%),radial-gradient(circle at 50% 60%,rgba(255,165,84,.14) 0%,transparent 34%),conic-gradient(from 0deg at 50% 50%,rgba(255,88,26,.09),rgba(255,140,66,.2),rgba(255,88,26,.08),rgba(255,190,120,.18),rgba(255,88,26,.09));filter:blur(26px);opacity:.95;animation:heroGlow 12s ease-in-out infinite alternate;z-index:0;pointer-events:none;}
+#hero::after{content:'';position:absolute;inset:auto 12% 14%;height:34vh;border-radius:999px;background:linear-gradient(90deg,rgba(255,88,26,0),rgba(255,120,38,.18),rgba(255,176,92,.26),rgba(255,120,38,.18),rgba(255,88,26,0));filter:blur(38px);animation:heroSweep 9s ease-in-out infinite;z-index:0;pointer-events:none;}
+.vinyl{position:absolute;right:-6%;top:-8%;width:65vmin;height:65vmin;border-radius:50%;background:conic-gradient(from 0deg,#0e0804,#2e0e03,#701e00,#b33508,#ff581a,#b33508,#701e00,#2e0e03,#0e0804,#2e0e03,#701e00,#b33508,#2e0e03,#0e0804);opacity:.4;animation:vspin 28s linear infinite;box-shadow:0 0 100px rgba(255,88,26,.25);z-index:1;}
 .vinyl::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:13%;height:13%;border-radius:50%;background:var(--dark);border:2px solid rgba(255,88,26,.25);}
 @keyframes vspin{to{transform:rotate(360deg);}}
+@keyframes heroGlow{0%{transform:translate3d(-2%,0,0) scale(1) rotate(0deg);filter:blur(24px) saturate(1);}50%{transform:translate3d(2%,-2%,0) scale(1.08) rotate(10deg);filter:blur(32px) saturate(1.15);}100%{transform:translate3d(-1%,2%,0) scale(1.02) rotate(-8deg);filter:blur(28px) saturate(1.05);}}
+@keyframes heroSweep{0%{transform:translateX(-10%) scaleX(.92);opacity:.55;}50%{transform:translateX(10%) scaleX(1.06);opacity:.95;}100%{transform:translateX(-4%) scaleX(.98);opacity:.65;}}
 .hero-inner{position:relative;z-index:2;padding:7rem 2rem 3rem;width:100%;max-width:900px;display:flex;flex-direction:column;align-items:center;}
-.hero-tag{font-size:.6rem;letter-spacing:.55em;color:var(--orange);text-transform:uppercase;margin-bottom:1.8rem;}
-.hero-logo{width:min(600px,85vw);height:auto;filter:drop-shadow(0 0 40px rgba(255,88,26,.35));margin-bottom:.5rem;}
+.hero-inner::before{content:'';position:absolute;inset:12% -6% auto;height:52%;background:linear-gradient(115deg,rgba(255,88,26,.05),rgba(255,166,94,.18),rgba(255,88,26,.08));filter:blur(18px);border-radius:999px;animation:heroPulse 8s ease-in-out infinite;z-index:-1;pointer-events:none;}
+@keyframes heroPulse{0%,100%{transform:scale(1);opacity:.7;}50%{transform:scale(1.08);opacity:1;}}
+.hero-tag{font-size:.6rem;letter-spacing:.55em;color:var(--orange);text-transform:uppercase;margin-bottom:1.8rem;text-shadow:0 0 18px rgba(255,88,26,.22);}
+.hero-logo{width:min(600px,85vw);height:auto;filter:drop-shadow(0 0 20px rgba(255,193,128,.16)) drop-shadow(0 0 44px rgba(255,88,26,.45));margin-bottom:.5rem;animation:heroLogoFloat 7s ease-in-out infinite;}
+@keyframes heroLogoFloat{0%,100%{transform:translateY(0px);}50%{transform:translateY(-6px);}}
 .btn-main{display:inline-block;margin-top:2.5rem;padding:.85rem 2.2rem;border:1px solid var(--orange);color:var(--orange);text-decoration:none;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;transition:all .3s;position:relative;overflow:hidden;}
 .btn-main::before{content:'';position:absolute;inset:0;background:var(--orange);transform:translateX(-100%);transition:.3s;}
 .btn-main:hover{color:var(--dark);}
@@ -97,7 +104,7 @@ h2.st{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);lin
 .del-cat:hover{border-color:#e53010;color:#e53010;}
 
 .items-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem;}
-@media(max-width:640px){.items-grid{grid-template-columns:1fr;}}
+@media(max-width:640px){.items-grid{grid-template-columns:1fr;}#hero::before{inset:-22%;filter:blur(22px);}#hero::after{left:6%;right:6%;bottom:18%;height:26vh;filter:blur(28px);} .hero-inner::before{inset:20% -2% auto;height:40%;}}
 .mi{display:flex;align-items:baseline;padding:.8rem 0;border-bottom:1px solid rgba(255,255,255,.04);gap:.8rem;transition:background .2s;position:relative;}
 .mi:hover{background:rgba(255,88,26,.03);}
 .mi-n,.mi-v,.mi-p{background:transparent;border:none;outline:none;font-family:'IBM Plex Mono',monospace;cursor:default;}
@@ -421,7 +428,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:2.5rem 
       <div class="hd"><span class="day">Čtvrtek</span><span class="time">15–24</span></div>
       <div class="hd"><span class="day">Pátek</span><span class="time">15–4</span></div>
       <div class="hd"><span class="day">Sobota</span><span class="time">15–4</span></div>
-      <div class="hd"><span class="day">Neděle</span><span class="time">12–22</span></div>
+      <div class="hd"><span class="day">Neděle</span><span class="time">15–24</span></div>
     </div>
   </div>
 </div>
@@ -434,7 +441,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:2.5rem 
       <div class="ci"><div class="ci-ico">📍</div><div><p class="ci-l">Adresa</p><p class="ci-v">Moravská 2815/59<br>767 01 Kroměříž 1<br><a href="https://share.google/ZpVmhK67XLMCsYtB7" target="_blank">Zobrazit na Google Maps →</a></p></div></div>
       <div class="ci"><div class="ci-ico">📞</div><div><p class="ci-l">Telefon</p><p class="ci-v"><a href="tel:+420773150085">+420 773 150 085</a></p></div></div>
       <div class="ci"><div class="ci-ico">🌐</div><div><p class="ci-l">Facebook</p><p class="ci-v"><a href="https://www.facebook.com/fenixbar.km/" target="_blank">//fenixbar.km</a></p></div></div>
-      <div class="ci" style="border-bottom:none;"><div class="ci-ico">🕐</div><div><p class="ci-l">Otevírací doba</p><p class="ci-v">Út–Čt, Ne: 12:00–22:00<br>Pá–So: 15:00–04:00<br>Pondělí: zavřeno</p></div></div>
+      <div class="ci" style="border-bottom:none;"><div class="ci-ico">🕐</div><div><p class="ci-l">Otevírací doba</p><p class="ci-v">Út–Čt, Ne: 15:00–24:00<br>Pá–So: 15:00–04:00<br>Pondělí: zavřeno</p></div></div>
     </div>
     <div>
       <form id="res-form" onsubmit="sendRes(event)">
