@@ -57,7 +57,27 @@ nav ul a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1
 nav ul a:hover{opacity:1;color:var(--orange);}
 nav ul a:hover::after{width:100%;}
 
-#hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse 80% 80% at 50% 40%,#3a1004 0%,#160903 50%,#0e0804 100%);overflow:hidden;}
+#hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("fenixfotka.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .vinyl{position:absolute;right:-6%;top:-8%;width:65vmin;height:65vmin;border-radius:50%;background:conic-gradient(from 0deg,#0e0804,#2e0e03,#701e00,#b33508,#ff581a,#b33508,#701e00,#2e0e03,#0e0804,#2e0e03,#701e00,#b33508,#2e0e03,#0e0804);opacity:.4;animation:vspin 28s linear infinite;box-shadow:0 0 100px rgba(255,88,26,.25);}
 .vinyl::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:13%;height:13%;border-radius:50%;background:var(--dark);border:2px solid rgba(255,88,26,.25);}
 @keyframes vspin{to{transform:rotate(360deg);}}
