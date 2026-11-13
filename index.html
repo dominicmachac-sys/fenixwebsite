@@ -61,6 +61,8 @@
   ]
 }
     </script><title>FÉNIX Pub & Music Bar – Kroměříž</title>
+    <!-- Adobe Fonts: ITC Benguiat Medium -->
+    <link rel="stylesheet" href="https://use.typekit.net/hbi3zst.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -70,15 +72,6 @@
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
     <style>
-/* ========== FONTY ========== */
-@font-face {
-  font-family: 'Benguiat Std';
-  src: url('fonts/BenguiatStd-Medium.otf') format('opentype');
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
 /* ========== 01 / DESIGN TOKENS & SPACING ========== */
 :root {
   --orange: #ff581a;
@@ -279,7 +272,9 @@ nav ul a:hover::after {
   will-change: transform;
 }
 .tape-track span {
-  font-family: 'Benguiat Std',sans-serif;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 1.3rem;
   letter-spacing: .1em;
   color: var(--dark);
@@ -322,7 +317,9 @@ nav ul a:hover::after {
   margin-bottom: .75rem;
 }
 h2.st {
-  font-family: 'Benguiat Std',sans-serif;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: clamp(2.8rem,7vw,5.5rem);
   line-height: 1;
   letter-spacing: .04em;
@@ -374,7 +371,9 @@ h2.st {
   margin-bottom: .8rem;
 }
 .nc h3 {
-  font-family: 'Benguiat Std',sans-serif;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 1.8rem;
   letter-spacing: .04em;
   margin-bottom: .6rem;
@@ -520,8 +519,9 @@ h2.st {
 }
 .mcat-name {
   margin: 0;
-  font-weight: 400;
-  font-family: 'Benguiat Std',sans-serif;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 1.6rem;
   letter-spacing: .15em;
   color: var(--orange);
@@ -607,7 +607,9 @@ input.mi-n,input.mi-v,input.mi-p {
   white-space: nowrap;
 }
 .mi-p {
-  font-family: 'Benguiat Std',sans-serif;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 1.3rem;
   color: #e8b84b;
   letter-spacing: .04em;
@@ -756,7 +758,9 @@ input.mi-p {
   text-align: center;
 }
 .stat big {
-  font-family: 'Benguiat Std',sans-serif;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 3.2rem;
   color: var(--orange);
   display: block;
@@ -807,7 +811,9 @@ input.mi-p {
   animation: vspinr 22s linear infinite;
 }
 .vd-lbl span {
-  font-family: 'Benguiat Std',sans-serif;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 0.85rem;
   letter-spacing: .08em;
   color: var(--orange);
@@ -840,8 +846,9 @@ input.mi-p {
   }
 }
 .hl {
-  font-weight: 400;
-  font-family: 'Benguiat Std',sans-serif;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 3.5rem;
   color: var(--dark);
   letter-spacing: .05em;
@@ -850,6 +857,7 @@ input.mi-p {
 .hl small {
   display: block;
   font-family: 'IBM Plex Mono',monospace;
+  font-weight: 400;
   font-size: 0.78rem;
   letter-spacing: .4em;
   opacity: .6;
@@ -878,7 +886,9 @@ input.mi-p {
   display: block;
 }
 .hd .time {
-  font-family: 'Benguiat Std',sans-serif;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 1.3rem;
   line-height: 1.15;
   color: var(--dark);
@@ -1034,7 +1044,9 @@ footer {
   gap: 1.5rem;
 }
 .fl {
-  font-family: 'Benguiat Std',sans-serif;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 1.7rem;
   color: var(--orange);
   letter-spacing: .1em;
@@ -1043,6 +1055,7 @@ footer {
   letter-spacing: .2em!important;
   display: block;
   font-family: 'IBM Plex Mono',monospace;
+  font-weight: 400;
   font-size: 0.72rem;
   letter-spacing: .4em;
   color: var(--muted);
@@ -1092,8 +1105,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   padding: 2.2rem;
 }
 .res-cta h3 {
-  font-family: 'Benguiat Std',sans-serif;
-  font-weight: 400;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 2.2rem;
   letter-spacing: .05em;
   margin-bottom: .8rem;
@@ -1172,7 +1186,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .nav-mobile-menu a {
   color: var(--cream);
   text-decoration: none;
-  font-family: 'Benguiat Std',sans-serif;
+  font-family: "itc-benguiat", serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 2.2rem;
   letter-spacing: .15em;
   transition: color .25s;
