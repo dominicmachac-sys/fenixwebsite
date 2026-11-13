@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: nahraďte skutečnou doménou
+Sitemap: https://www.vase-domena.cz/sitemap.xml
